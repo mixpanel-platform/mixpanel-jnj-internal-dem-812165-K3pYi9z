@@ -17,7 +17,7 @@
      MP.api.ready(function() {
         
         // Events Data
-        var overallData = MP.api.events('Game Played', 'App Open', 'In-App Purchase', 'App Install', 'Registration Complete', {
+        var overallData = MP.api.events('Feedback', '', 'Search', 'Share', 'Stories', {
             from: moment().subtract(6, 'months'),
             unit: 'week'
         });
@@ -52,8 +52,8 @@
         var dataExported = MP.api.query('/api/2.0/segmentation/numeric/', {
             from: moment().subtract(6, 'months'),
             to: moment(),
-            event: 'Session End',
-            on: 'properties["Session Time"]',
+            event: 'Share',
+            on: 'properties["Social Channel"]',
             unit: 'week'
         }, {dataType:'json'})
         .done(function(json) {
